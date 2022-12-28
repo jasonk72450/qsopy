@@ -1,4 +1,3 @@
-import os
 import random
 import sys
 
@@ -74,9 +73,10 @@ def protocol_2(other_call, rig, ant, wx):
     power = random.randrange(5, 1501, 5)  # 5 to 1500, multiples of 5
     height = random.randrange(10, 301, 10)  # 10 to 300, multiples of 10
     temperature = random.randrange(0, 121)  # 0 to 120
+    greet_2 = random.choice(["OK", "RR", "FB"])
     return f"""    
 {my_call} DE {other_call}
-OK {my_name} FB ES TNX FER RPRT
+{greet_2} {my_name} ES TNX FER RPRT
 RIG {rig} ES PWR {power} W
 ANT {ant} UP {height} FT
 WX {wx} ES TEMP {temperature} F
@@ -88,9 +88,10 @@ OK HW? <AR>
 def protocol_3(other_call, key):
     age = random.randrange(12, 101)  # 12 to 100
     ham_years = random.randrange(1, age - 10)  # 1 to age-11
+    greet_3 = random.choice(["OK", "RR", "FB", "TU"])
     return f"""
 {my_call} DE {other_call}
-RR {my_name} SOLID CPY
+{greet_3} {my_name} SOLID CPY
 AGE {age} YRS
 BEEN HAM FER {ham_years} YRS
 MY KEY {key}
@@ -100,9 +101,10 @@ OK HW? <AR>
 
 
 def protocol_4(other_call, rag_chew1, rag_chew2, rag_chew3):
+    greet_4 = random.choice(["OK", "RR", "FB"])
     return f"""
 {my_call} DE {other_call}
-FB {my_name} TU FER QSO
+{greet_4} {my_name} TU FER QSO
 RETIRED {rag_chew1},
 LIKE {rag_chew2} ES {rag_chew3},
 HW? <AR> 
@@ -111,9 +113,10 @@ HW? <AR>
 
 
 def protocol_5(other_call):
+    greet_5 = random.choice(["OK", "RR"])
     return f"""
 {my_call} DE {other_call}
-OK {my_name} TNX FER FB QSO
+{greet_5} {my_name} TNX FER FB QSO
 ES HP CUAGN 73 <AR> 
 {my_call} DE {other_call} <EE>
     """.strip()
