@@ -46,12 +46,12 @@ def generate_all():
     text3 = protocol_3(other_call, key)
     print_and_write_file(3, text3)
 
-    text4 = protocol_4(other_call)
+    text4 = protocol_4(other_call, rag_chew1, rag_chew2, rag_chew3)
     print_and_write_file(4, text4)
 
-    text5 = protocol_5(other_call, rag_chew1, rag_chew2, rag_chew3)
+    text5 = protocol_5(other_call)
     print_and_write_file(5, text5)
-
+    
 
 def protocol_cq(other_call):
     return f"""
@@ -66,8 +66,8 @@ def protocol_1(other_call, salutation, rst, qth, other_name):
 UR RST {rst} {rst}
 QTH {qth} {qth}
 NAME {other_name} {other_name}
-OK HW?   
-{my_call} DE {other_call} K
+OK HW? <AR>
+{my_call} DE {other_call} <KN>
     """.strip()
 
 
@@ -81,8 +81,8 @@ OK {my_name} FB ES TNX FER RPRT
 RIG {rig} ES PWR {power} W
 ANT {ant} UP {height} FT
 WX {wx} ES TEMP {temperature} F
-OK HW?   
-{my_call} DE {other_call} K
+OK HW? <AR>
+{my_call} DE {other_call} <KN>
     """.strip()
 
 
@@ -95,29 +95,32 @@ RR {my_name} SOLID CPY
 AGE {age} YRS
 BEEN HAM FER {ham_years} YRS
 MY KEY {key}
-OK HW?   
-{my_call} DE {other_call} K
+OK HW? <AR>  
+{my_call} DE {other_call} <KN>
     """.strip()
 
 
-def protocol_4(other_call):
-    return f"""
-{my_call} DE {other_call}
-OK {my_name} TNX FER FB QSO
-ES HP CUAGN 73   
-{my_call} DE {other_call}
-    """.strip()
-
-
-def protocol_5(other_call, rag_chew1, rag_chew2, rag_chew3):
+def protocol_4(other_call, rag_chew1, rag_chew2, rag_chew3):
     return f"""
 {my_call} DE {other_call}
 FB {my_name} TU FER QSO
 RETIRED {rag_chew1},
-LOVE {rag_chew2} ES {rag_chew3},
-ES HP CUAGN 73   
-{my_call} DE {other_call}
+LIKE {rag_chew2} ES {rag_chew3},
+HW? <AR> 
+{my_call} DE {other_call} <KN>
     """.strip()
+
+
+def protocol_5(other_call):
+    return f"""
+{my_call} DE {other_call}
+OK {my_name} TNX FER FB QSO
+ES HP CUAGN 73 <AR> 
+{my_call} DE {other_call} <EE>
+    """.strip()
+
+
+
 
 
 if __name__ == '__main__':

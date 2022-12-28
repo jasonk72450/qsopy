@@ -48,7 +48,7 @@ painter
 pharmacist
 photographer
 physician
-physician's assistant
+physicians assistant
 pilot
 plumber
 police officer
