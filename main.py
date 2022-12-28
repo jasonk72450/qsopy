@@ -4,7 +4,8 @@ import sys
 
 
 def get_random_text(filename):
-    file_location = os.path.join('data', filename)
+    # file_location = os.path.join('data', filename)
+    file_location = f"data/{filename}"
     with open(file_location, "r") as file:
         lines = file.readlines()
         return random.choice(lines).strip()
@@ -34,8 +35,8 @@ def generate_all():
     rag_chew2 = get_random_text("rag_chew2.txt").upper()
     rag_chew3 = get_random_text("rag_chew3.txt").upper()
 
-    text_cq = protocol_cq(other_call)
-    print_and_write_file("cq", text_cq)
+    # text_cq = protocol_cq(other_call)
+    print_and_write_file("cq", protocol_cq(other_call))
 
     text1 = protocol_1(other_call, salutation, rst, qth, other_name)
     print_and_write_file(1, text1)
@@ -54,9 +55,7 @@ def generate_all():
     
 
 def protocol_cq(other_call):
-    return f"""
-CQ CQ CQ DE {other_call} {other_call} {other_call} K
-    """.strip()
+    return f"CQ CQ CQ DE {other_call} {other_call} {other_call} K"
 
 
 def protocol_1(other_call, salutation, rst, qth, other_name):
@@ -75,7 +74,7 @@ def protocol_2(other_call, rig, ant, wx):
     power = random.randrange(5, 1501, 5)  # 5 to 1500, multiples of 5
     height = random.randrange(10, 301, 10)  # 10 to 300, multiples of 10
     temperature = random.randrange(0, 121)  # 0 to 120
-    return f"""
+    return f"""    
 {my_call} DE {other_call}
 OK {my_name} FB ES TNX FER RPRT
 RIG {rig} ES PWR {power} W
@@ -120,9 +119,6 @@ ES HP CUAGN 73 <AR>
     """.strip()
 
 
-
-
-
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         my_name = sys.argv[1]
@@ -130,5 +126,9 @@ if __name__ == '__main__':
     else:
         print("App can also be run with 'python3", sys.argv[0], "[NAME] [CALL]'")
         my_name = input("Enter your name: ").upper()
+        if not my_name:
+            my_name = "JASON"
         my_call = input("Enter your call: ").upper()
+        if not my_call:
+            my_call = "KE5JLN"
     generate_all()
