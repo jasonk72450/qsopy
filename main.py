@@ -80,7 +80,7 @@ def protocol_2(other_call, rig, ant, wx):
 RIG {rig} ES PWR {power} W
 ANT {ant} UP {height} FT
 WX {wx} ES TEMP {temperature} F
-OK HW? <AR>
+HW? <AR>
 {my_call} DE {other_call} <KN>
     """.strip()
 
