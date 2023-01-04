@@ -33,6 +33,10 @@ def generate_all():
     rag_chew1 = get_random_text("rag_chew1.txt").upper()
     rag_chew2 = get_random_text("rag_chew2.txt").upper()
     rag_chew3 = get_random_text("rag_chew3.txt").upper()
+#    wx_cold = get_random_text("wx_cold.txt").upper()
+#    wx_cool = get_random_text("wx_cool.txt").upper()
+#    wx_fair = get_random_text("wx_fair.txt").upper()
+#    wx_hot = get_random_text("wx_hot.txt").upper()
 
     # text_cq = protocol_cq(other_call)
     print_and_write_file("cq", protocol_cq(other_call))
